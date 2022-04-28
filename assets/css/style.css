@@ -38,7 +38,6 @@ header nav {
     font-size: 20px;
 }
 
-/* it was unnecessary to have display: inline-block; on the ul */
 header nav ul {
     list-style-type: none;
     display: inline-block;
