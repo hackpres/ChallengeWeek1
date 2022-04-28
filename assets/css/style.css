@@ -1,53 +1,62 @@
+/* universal selector will apply these rules to all elements.
+Here it is being used to "reset" the padding and margin so that we can add in the desired rules without having to concern ourselves with any default settings messing us up. 
+And box-sizing: border-box tells the browser to account for any border or padding in the sizing of the element, meaning that the content will be the size we set it to rather than adding the border and padding onto that size like content-box would.*/
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+/* all of the content in our html file is contained within the body element, so this rule will be applied to all children *unless the childs rule overules it 
+added the font-family most used so as to adhere to DRY coding*/
 body {
     background-color: #d9dcd6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.header {
+/* since we used the semantic element of header the class="header" became obsolete and has been deleted. Thusly, I have changed all .header rules to header. */
+header {
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #2a607c;
     color: #ffffff;
 }
 
-.header h1 {
+header h1 {
     font-size: 48px;
     display: inline;
 }
 
-.header h1 .seo {
+header h1 .seo {
     color: #d9dcd6;
 }
 
-.header nav {
+header nav {
     padding-top: 15px;
     margin-right: 20px;
     float: right;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
 
-.header nav ul {
+/* it was unnecessary to have display: inline-block; on the ul */
+header nav ul {
     list-style-type: none;
-    display: inline-block;
 }
 
-.header nav ul li {
+header nav ul li {
     margin-left: 25px;
     display: inline-block;
 }
 
-a {
+/* specified the file structure for where these a elements are located. */
+body header nav ul li a {
     color: #ffffff;
     text-decoration: none;
 }
 
-p {
+/* specified the file structure location for the p elements 
+font-size: 16px; is the default size for text, so I'm not sure this is a necessary rule. However, I dont think it hurts to specify that it is also the desired size */
+body main section p, body main footer p {
     font-size: 16px;
 }
 
@@ -60,6 +69,34 @@ p {
     background-position: center;
 }
 
+/* .content is structured before the use of .fload-left in our document, so I have moved it above in the stylesheet to match. */
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+/* Moved everything dealing with the main element to match the html documents element structure. It was previously styled below the aside content.
+Don't Repeat Yourself keeping the code DRY by adding all of the elements together with a "," so they can be styled together */
+.search-engine-optimization, .online-reputation-management, .social-media-marketing {
+    margin-bottom: 20px;
+    padding: 50px;
+    height: 300px;
+    background-color: #0072bb;
+    color: #ffffff;
+}
+
+/* DRY again for the main element img children */
+.search-engine-optimization img, .online-reputation-management img, .social-media-marketing img {
+    max-height: 200px;
+}
+
+/* DRY again */
+.search-engine-optimization h2, .online-reputation-management h2, .social-media-marketing h2 {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
 .float-left {
     float: left;
     margin-right: 25px;
@@ -70,12 +107,6 @@ p {
     margin-left: 25px;
 }
 
-.content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
-}
-
 .benefits {
     margin-right: 20px;
     padding: 20px;
@@ -83,110 +114,26 @@ p {
     float: right;
     width: 20%;
     height: 100%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #2589bd;
 }
 
-.benefit-lead {
+/* all of the benefit-xxx classes are identical. In order to adhere to DRY coding I have applied thier rules together by adding a "," between the selectors.  */
+.benefit-lead, .benefit-brand, .benefit-cost {
     margin-bottom: 32px;
     color: #ffffff;
 }
 
-.benefit-brand {
-    margin-bottom: 32px;
-    color: #ffffff;
-}
-
-.benefit-cost {
-    margin-bottom: 32px;
-    color: #ffffff;
-}
-
-.benefit-lead h3 {
+/* keeping DRY code so all benefits h3 elements are being styled together with a "," */
+.benefit-lead h3, .benefit-brand h3, .benefit-cost h3 {
     margin-bottom: 10px;
     text-align: center;
 }
 
-.benefit-brand h3 {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.benefit-cost h3 {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.benefit-lead img {
+/* DRY coding again, styling all of the benefits img together rather than separate */
+.benefit-lead img, .benefit-brand img, .benefit-cost img {
     display: block;
     margin: 10px auto;
     max-width: 150px;
-}
-
-.benefit-brand img {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
-}
-
-.benefit-cost img {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
-}
-
-.search-engine-optimization {
-    margin-bottom: 20px;
-    padding: 50px;
-    height: 300px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #0072bb;
-    color: #ffffff;
-}
-
-.online-reputation-management {
-    margin-bottom: 20px;
-    padding: 50px;
-    height: 300px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #0072bb;
-    color: #ffffff;
-}
-
-.social-media-marketing {
-    margin-bottom: 20px;
-    padding: 50px;
-    height: 300px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #0072bb;
-    color: #ffffff;
-}
-
-.search-engine-optimization img {
-    max-height: 200px;
-}
-
-.online-reputation-management img {
-    max-height: 200px;
-}
-
-.social-media-marketing img {
-    max-height: 200px;
-}
-
-.search-engine-optimization h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-}
-
-.online-reputation-management h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
-}
-
-.social-media-marketing h2 {
-    margin-bottom: 20px;
-    font-size: 36px;
 }
 
 .footer {
