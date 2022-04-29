@@ -2,3 +2,7 @@ The module 1 Challenge is a Code Refactoring excercise. The objective is to refa
 
 Github repo URL: https://github.com/hackpres/ChallengeWeek1
 deployed application URL: https://hackpres.github.io/ChallengeWeek1/
+
+screenshots from working github repo URL:
+![topHalfScreenshot](./assets/images/topHalfScreenshot.png?raw=true "Screenshot 1 of 2")
+![bottomHalfScreenshot](./assets/images/bottomHalfScreenshot.png?raw=true "Screenshot 2 of 2")
